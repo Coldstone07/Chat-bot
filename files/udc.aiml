@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aiml>
+    <category>
+        <pattern>Hello</pattern>
+        <template>
+            <random>
+                <li>hello.</li>
+                <li>hi.</li>
+                <li>yo</li>
+                <li>hey</li>
+                <li>huh?</li>
+            </random>
+        </template>
+        <template>Hi!</template>
+    </category>
+  <category>
+    <pattern>*</pattern>
+    <template>I have no answer for that.</template>
+  </category>
+  <category>
+      <pattern>MY NAME IS *</pattern>
+      <template>Thats a cool name <set name='first_name'/><star/></template>
+  </category>
+  <category>
+      <pattern>MY NAME IS * *</pattern>
+      <template>
+          <thnk>
+             <set name='firstname'><star/></set>
+             <set name='lastname'><star index='2'/></set>
+          </thnk>
+           Thats a cool name <star/> <star index='2'/></template>
+  </category>
+  <category>
+      <pattern>WHAT IS MY NAME</pattern>
+      <template>your name is <get name='username'/></template>
+  </category>
+  <category>
+      <pattern>MY FAVORITE COLOR IS *</pattern>
+      <template>
+          <think><set name='usercolor'><star/></set></think>
+          Interesting
+      </template>
+  </category>
+  <category>
+      <pattern>WHAT IS MY FAVORITE COLOR</pattern>
+      <template><get name='usercolor'/></template>
+  </category>
+  <category>
+      <that>THAT IS COOL</that>
+      <pattern>DO YOU REMEMBER IT</pattern>
+      <template>Yes, it is <get name='usercolor'/></template>
+  </category>
+  <category>
+      <that>YOUR NAME IS *</that>
+      <pattern>DO YOU REMEMBER IT</pattern>
+      <template>Yes, it is <thatstar/></template>
+  </category>
+  <category>
+      <pattern> I AM * *</pattern>
+      <template>Are you sure you are <star index='2'/>?</template>
+  </category>
+</aiml>
